@@ -77,14 +77,42 @@ export default defineConfig({
               component: './ListTableList',
             },
             {
+              exact: false,
               name: '空白页面',
               icon: 'smile',
               path: '/emptypage',
-              component: './EmptyPage/Clock',
+              component: './EmptyPage/_layout',
+              hideChildrenInMenu: true,
+              routes: [
+                {
+                  exact: true,
+                  path: '/emptypage/1',
+                  name: 'sub-page',
+                  icon: 'smile',
+                  component: './EmptyPage/Clock',
+                },
+                {
+                  exact: true,
+                  path: '/emptypage/sub-page1',
+                  name: 'sub-page2',
+                  icon: 'smile',
+                  component: './EmptyPage/childPage',
+                },
+              ],
             },
             {
               component: './404',
             },
+
+            // {
+            //   exact: false,
+            //   path: '/emptypage',
+            //   component: '@/pages/EmptyPage/_layout',
+            //   routes: [
+            //     { exact: true, path: '/emptypage', component: '@/pages/EmptyPage/Clock' },
+            //     { exact: true, path: '/emptypage/sub-page1', component: '@/pages/EmptyPage/childPage' },
+            //   ],
+            // },
           ],
         },
         {
